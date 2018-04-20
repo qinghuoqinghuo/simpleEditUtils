@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线编译器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #F5F5F5;
+        }
+
+        #big {
+            display: flex;
+            height: 800px;
+            justify-content: space-around;
+            align-content: space-around;
+        }
+
+        .box {
+            width: 45%;
+            height: 800px;
+            border-style: solid;
+            border-width: 32px 37px;
+            border-image-source: url('bg-border.png');
+            border-image-slice: 32 37 fill;
+            border-image-width: initial;
+            border-image-outset: initial;
+            border-image-repeat: initial;
+            background: #F5F5F5;
+        }
+
+        .button {
+            color: #fff;
+            padding: 5px 23px;
+            border: none;
+            outline: 0;
+            cursor: pointer;
+        }
+
+        .input-data {
+            height: 90%;
+            width: 96%;
+            padding: 2%;
+            outline: none;
+            border: none;
+            background: #fff;
+            caret-color: red;
+        }
+
+        .header {
+            height: 5%;
+        }
+
+        .warning {
+            background: #ff4400;
+        }
+
+        .warning:hover {
+            opacity: 0.8;
+        }
+
+        .success {
+            background: #2AD39D;
+        }
+
+    </style>
+</head>
+<body>
+<div id="big">
+    <div class="box">
+        <div class="header" align="right">
+            <button id="rundata" class="button warning" onclick="rundata()">运行</button>
+        </div>
+        <textarea id="inputdata" class="input-data">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>在线编译器</title>
+<style>
+
+
+</style>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+
+</script>
+        </textarea>
+    </div>
+    <div>
+    </div>
+    <div class="box">
+        <div class="header">
+            <button class="button success">结果</button>
+        </div>
+        <iframe id="iframe1" class="input-data"></iframe>
+    </div>
+</div>
+
+</body>
+</html>
+<script type="text/javascript">
+    function rundata() {
+        //获取输入框内的数据
+        var text = document.getElementById('inputdata').value;
+        // 先清空iframe
+        var iframe = document.getElementById("iframe1").contentWindow.document.body.innerText = "";
+        //将输入框内的数据传给iframe
+        iframe = document.getElementById('iframe1').contentDocument.write(text);
+    }
+</script>
